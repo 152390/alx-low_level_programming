@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- * print_alphabet - Entry point
+ * main - Entry point
  *
- * Return: 0 
+ * Return:always 0 (Success)
  */
+
 void print_alphabet(void)
 
 {
@@ -13,11 +14,10 @@ void print_alphabet(void)
 	while (c <= 'z')
 	{
 
-		_putchar(c);
+		_putchar(c);	
 		c++;
+
 	}
+	_putchar('\n');
 
-	_putchar('\n')'
-
-
-}	
+}
