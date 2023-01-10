@@ -1,35 +1,23 @@
-#include "main.h"
-#include <stdio.h>
+#include "holberton.h"
 
 /**
-* simple_print_butter - printer buffer in hexa
-* @buffer: the address of memory to print
-* @size: the size of the memory to print
-*
-* Return: Nothing.
-*/
-void simple_print_buffer(char *buffer, unsigned int size)
+ * *_memset - Fills memory with a constant byte
+ *
+ * @s: pointer
+ * @b: char
+ * @n: unsigned int* @n: unsigned int
+ *
+ *Return: s
+ */
+
+char *_memset(char *s, char b, unsigned int n)
 {
-unsigned int i
- i = 0;
-while (i < size)
-{
-if (i 
+	unsigned int index;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	for (index = 0; n > 0; index++)
+	{
+		s[index] = b;
+		n -= 1;
+	}
+	return (s);
+}
