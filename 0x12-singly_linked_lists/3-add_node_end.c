@@ -1,38 +1,53 @@
 #include "lists.h"
+
+
+static listint_t *new_node(const int n);
 /**
- * add_node_end - Add a new node at the end of a list
- * @head: Address of the first node of a list
- * @str: Address of the string to insert into the new node
- * Return: Address of the new node
- **/
-list_t *add_node_end(list_t **head, const char *str)
+ * add_nodeint_end - add a node to the end of a list.
+ * @head: pointer of apointer to the head of a list.
+ * @n: number value to set the new node to.
+ *
+ * Return: pointer to the head of a list.
+ */
+listint_t *add_nodeint_end(listint_t **head, const int n)
 {
 	list_t *temp, *temp2;
-	unsigned int length = 0;
-	if (str == NULL)
-		if (str == NULL)
-			temp = malloc(sizeof(list_t));
-	if (temp == NULL)
-		return (NULL);
-	temp->str = strdup(str);
-	if (temp->str == NULL)
+
+	if (!(*head))
 	{
-		free(temp);
-		return (NULL);
+		*head = new_node(n);
+		return (*head);
 	}
-	while (str[length])
-		length++;
-	temp->len = length;
-	temp->next = NULL;
-	if (*head == NULL)
+
+	temp = *head;
+	while (temp)
 	{
-		*head = temp;
-		return (temp);
+		if (!temp->next)
+		{
+			new = new_node(n);
+			temp->next = new;
+			break;
+		}
+		temp = temp->next;
 	}
-		temp2 = *head;
-		while (temp2->next)
-			temp2 = temp2->next;
-		temp2->next = temp;
-		return (temp);
+	return (*head);
+}
+
+/**
+ * new_node - creates a new listint_t node.
+ * @n: number to place inside the node.
+ *
+ * Return: pointer to the new node.
+ */
+static listint_t *new_node(const int n)
+{
+	listint_t *new;
+
+	new = malloc(sizeof(listint_t));
+	if (!new)
+		return (NULL);
+	new->n = n;
+	new->next = NULL;
+	return (new);
 }
 
